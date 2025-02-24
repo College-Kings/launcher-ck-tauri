@@ -30,5 +30,10 @@ jobs:
       - name: Install Tauri CLI
         run: cargo install tauri-cli
 
-      - name: Build Tauri app
-        run: cargo tauri build --release
+      - name: Build Tauri app for Linux
+        if: matrix.os == 'ubuntu-latest'
+        run: cargo tauri build --bundles appimage
+      
+      - name: Build Tauri app for macOS
+        if: matrix.os == 'macos-latest'
+        run: cargo tauri build --bundle dmg
