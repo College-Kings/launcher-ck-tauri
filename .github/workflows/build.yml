@@ -36,4 +36,4 @@ jobs:
       
       - name: Build Tauri app for macOS
         if: matrix.os == 'macos-latest'
-        run: cargo tauri build --bundle dmg
+        run: cargo tauri build --bundles dmg
