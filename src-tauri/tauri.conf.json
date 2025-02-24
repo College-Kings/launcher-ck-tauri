@@ -5,19 +5,22 @@
   "identifier": "com.launcher-ck-tauri.app",
   "build": {
     "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
     "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
   "app": {
     "windows": [
       {
+        "center": true,
+        "decorations": true,
+        "focus": true,
         "fullscreen": false,
         "height": 900,
         "resizable": true,
-        "title": "app",
-        "width": 1280,
-        "visible": false
+        "title": "College Kings Launcher",
+        "visible": true,
+        "width": 1280
       }
     ],
     "security": {
@@ -27,6 +30,7 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "createUpdaterArtifacts": true,
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -36,10 +40,11 @@
     ]
   },
   "plugins": {
-    "deep-link": {
-      "desktop": {
-        "schemes": ["ck2-launcher"]
-      }
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM0MDU0NDZDOTM4MTQ5NDkKUldSSlNZR1RiRVFGeEMvbTRJaEk0TERDVjdwSTZmck5aR3kzeEZUM3R1NHVVMnNUV29uWE5zdDcK",
+      "endpoint": [
+        "https://github.com/user/repo/releases/latest/download/latest.json"
+      ]
     }
   }
 }

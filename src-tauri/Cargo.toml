@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "A Tauri App"
 authors = ["you"]
 edition = "2021"
-windows_subsystem = "windows"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -16,20 +15,30 @@ name = "launcher_ck_tauri_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2", features = [] }
+tauri-build = { version = "*", default-features = false, features = [
+    "config-json",
+] }
 
 [dependencies]
-tauri = { version = "2", features = [] }
-tauri-plugin-shell = "2"
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-env_logger = "0.10"
-log = "0.4"
-window-shadows = "0.2"
-open = "5.0"
-tauri-plugin-deep-link = "2"
-tauri-plugin-dialog = "2"
-reqwest = { version = "0.11", features = ["json"] }
-tauri-plugin-clipboard-manager = "2.2.0"
-[target."cfg(any(target_os = \"macos\", windows, target_os = \"linux\"))".dependencies]
-tauri-plugin-single-instance = { version = "2.0.0", features = ["deep-link"] }
+bunny-cdn-wrapper = { version = "*", git = "https://github.com/ViridianLink/bunny-cdn-api" }
+patreon-api = { version = "*", git = "https://github.com/ViridianLink/patreon-api.git" }
+tauri = { version = "*", default-features = false, features = ["wry"] }
+tauri-plugin-shell = { version = "*", default-features = false }
+# tauri-plugin-deep-link = { version = "*", default-features = false }
+tauri-plugin-dialog = { version = "*", default-features = false }
+tauri-plugin-opener = { version = "*", default-features = false }
+# tauri-plugin-single-instance = { version = "*", features = ["deep-link"] }
+serde = { version = "*", default-features = false, features = ["derive"] }
+serde_json = { version = "*", default-features = false }
+dirs = { version = "*", default-features = false }
+futures = { version = "*", default-features = false }
+tokio = { version = "*", default-features = false, features = ["fs"] }
+walkdir = { version = "*", default-features = false }
+zip = { version = "*", default-features = false, features = ["deflate"] }
+semver = { version = "*", default-features = false, features = ["serde"] }
+lazy_static = { version = "*", default-features = false }
+regex = { version = "*", default-features = false }
+httparse = { version = "*", default-features = false }
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-updater = "2"
