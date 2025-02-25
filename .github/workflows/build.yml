@@ -25,6 +25,8 @@ jobs:
             libwebkit2gtk-4.1-dev \
             pkg-config \
             libfuse2
+          sudo apt install --reinstall ca-certificates
+          sudo update-ca-certificates -f
 
       - name: Setup Rust toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
