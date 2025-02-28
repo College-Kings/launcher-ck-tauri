@@ -41,6 +41,7 @@
   },
   "plugins": {
     "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM0MDU0NDZDOTM4MTQ5NDkKUldSSlNZR1RiRVFGeEMvbTRJaEk0TERDVjdwSTZmck5aR3kzeEZUM3R1NHVVMnNUV29uWE5zdDcK",
       "endpoint": [
         "https://github.com/user/repo/releases/latest/download/latest.json"
       ]
