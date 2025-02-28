@@ -1,7 +1,7 @@
 name: Build Tauri App (MacOS)
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
