@@ -38,5 +38,12 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "endpoint": [
+        "https://github.com/user/repo/releases/latest/download/latest.json"
+      ]
+    }
   }
 }
